@@ -1,2 +1,1 @@
-# aalg
-Advanced Algorithm
+# Advanced Algorithm
