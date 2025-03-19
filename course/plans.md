@@ -1,117 +1,171 @@
-الگوریتم‌های پیشرفته
+تحلیل و طراحی الگوریتم‌ها
+
+۴۵۰ صفحه
+۱۴ هفته
+
+۳۷ صفحه در هفته
+
+۱۲ صفحه یک ساعته
+۲۵ صفحه دو ساعته
 
 ------------------
-الگوریتم‌های تصادفی
+۱
+مقدمه
 ------------------
 
-clrs 5
+۲ جلسه
 
-5. Probabilistic Analysis and Randomized Algorithms 
-5.1 The hiring problem 
-5.2 Indicator random variables 
-5.3 Randomized algorithms 
-5.4 Probabilistic analysis and further uses of indicator random variables
+‫مفهوم‬ ‫الگوریتم‪
+‫انگيزه‬ ‫مطالعه‬ ‫تحليل‬ ‫و‬ ‫طراحی‬ ‫الگوریتم‬ ‫ها‬‫
+معرفی‬ ‫مفاهيم‬ ‫پایه‬
+
+clrs 1,2
+30 pages
 
 ------------------
+۲
+تحلیل الگوریتم‌ها
+------------------
+
+۲ جلسه
+
+‫‪‬‬‫مرور‬ ‫جبر‬ ‫مجانبی‬
+‬‬مقدمه‬ای‬‫ بر‬ ‫تحليل‬ ‫سرشکن‬
+
+زمان اجرای برنامه‌ها
+پیچیدگی الگوریتم‌ها
+تابع‌های رشد
+روش‌های تحلیل الگوریتم‌ها
+
+تحلیل سرشکنی
+تحلیل تجمعی
+روش حسابرسی
+روش پتانسیل
+
+clrs 3,16
+30 pages
+
+------------------
+۳
+الگوریتم‌های تقسیم و حل
+------------------
+
+۴ جلسه
+
+‫الگوریتم‬ ‫های‬‫جستجوی‬ ‫سریع‬ ‫و‬ ‫ادغامی‬
+‫‪‬‬‫الگوریتم‬ ‫استراسن‬ ‫برای‬ ‫ضرب‬ ‫ماتریس‬ ‫های‬‫بزرگ‬
+نزدیک‌ترین زوج نقطه
+حل مسائل بازگشتی
+
+clrs 4
+30 pages
+
+------------------
+۴
+برنامه‌ریزی پویا
+------------------
+
+۳ جلسه
+
+‫الگوریتم‬ ‫هایی‬‫برای‬ ‫مسائل‬ ‫بزرگترین‬ ‫زیررشته‬ ‫مشترک‬ ‫و‬ ‫هم‬ ‫تراز‬ ‫کردن‬ ‫دنباله‬ ‫ها‬
+‫‪‬‬‫ضرب‬ ‫زنجيره‬ ‫ای‬‫ماتریس‬ ‫ها‬
+‫‪‬‬‫درخت‬ ‫جستجوی‬ ‫بهينه‬
+
+clrs 14
+40 pages
+
+------------------
+۵
+الگوریتم‌های حریصانه
+------------------
+
+۲ جلسه
+
+‫‪‬‬‫الگوریتمی‬ ‫حریصانه‬ ‫برای‬ ‫مسأله‬ ‫انتخاب‬ ‫فعاليت‬ ‫های‬‫بيشينه‬
+کدگذاری هافمن به روش حریصانه
+
+clrs 15
+20 pages
+
+------------------
+۶
+الگوریتم‌های جستجو
+------------------
+
+۳ جلسه
+
+روش پسگرد
+‫الگوریتم‬ ‫‬ پسگرد‬ ‫برای‬ ‫مسأله‬ ‫‪چند‬‬ ‫وزیر‬
+‫‪‬‬‫الگوریتم‬ ‫شاخه‬ ‫حد‬ ‫برای‬ ‫مسأله‬ ‫فروشنده دوره‌گرد‬
+
+neapolitan 5,6
+30 pages
+
+------------------
+۷
 الگوریتم‌های گراف
 ------------------
 
-clrs 23,24,25
+۴ جلسه
 
-23. All-Pairs Shortest Paths 
-23.1 Shortest paths and matrix multiplication 
-23.2 The Floyd-Warshall algorithm 
-23.3 Johnson’s algorithm for sparse graphs 
+معرفی گراف و جستجوی گراف
+‫الگوریتم‬‫های‬‫کوتاه‬ ‫ترین‬‫مسير فلوید و دایکسترا
+‫‪‬‬‫الگوریتم‬ ‫های‬‫درخت‬ ‫پوشای‬ ‫کمينه‬ ‫پریم و کروسکال‬
+‫‪‬‬‫الگوریتمی‬ ‫عقب‬ ‫گرد‬ ‫برای‬ ‫مسأله‬ ‫رنگ‬ ‫آميزی‬ ‫گراف‬
 
-24. Maximum Flow 
-24.1 Flow networks 
-24.2 The Ford-Fulkerson method 
-24.3 Maximum bipartite matching 
+clrs 20
+45 pages
 
-25. Matchings in Bipartite Graphs 
-25.1 Maximum bipartite matching
-25.2 The stable-marriage problem
-25.3 The Hungarian algorithm for the assignment problem
+-------‫‪‬‬‫‬-----------
+۸
+نظریه محاسبات
+------------------
+
+۲ جلسه
+
+مساله‌های ان‌پی کامل
+الگوریتم‌های تقریبی
+
+clrs 34,35
+30 pages
 
 ------------------
+الگوریتم‌های پیشرفته
+------------------
+
+الگوریتم‌های تصادفی
+clrs 5
+
 الگوریتم‌های موازی
-------------------
-
 clrs 26
 
-26. Parallel Algorithms 
-26.1 The basics of fork-join parallelism 
-26.2 Parallel matrix multiplication 
-26.3 Parallel merge sort
-
-------------------
 الگوریتم‌های برخط
-------------------
-
 clrs 27
 
-27. Online Algorithms 
-27.1 Waiting for an elevator 
-27.2 Maintaining a search list 
-27.3 Online caching
-
-------------------
 بهینه‌سازی خطی
-------------------
-
 clrs 29
 
-29. Linear Programming 
-29.1 Linear programming formulations and algorithms
-29.2 Formulating problems as linear programs 
-29.3 Duality
-
-------------------
-الگوریتم‌های تطبیق رشته
-------------------
-
-clrs 32
-
-32. String Matching 
-32.1 The naive string-matching algorithm 
-32.2 The Rabin-Karp algorithm 
-32.3 String matching with ûnite automata 
-32.4 The Knuth-Morris-Pratt algorithm 
-32.5 Sufûx arrays
-
-------------------
-الگوریتم‌های یادگیری ماشین
-------------------
-
-clrs 33
-
-33. Machine-Learning Algorithms 
-33.1 Clustering 
-33.2 Multiplicative-weights algorithms
-33.3 Gradient descent
-
-------------------
 مساله‌های ان‌پی‌کامل
-------------------
-
 clrs 34
 
-34. NP-Completeness 
-34.1 Polynomial time 
-34.2 Polynomial-time veriûcation 
-34.3 NP-completeness and reducibility 
-34.4 NP-completeness proofs 
-34.5 NP-complete problems
-
-------------------
 الگوریتم‌های تقریبی
-------------------
-
 clrs 35
 
-35. Approximation Algorithms 
-35.1 The vertex-cover problem 
-35.2 The traveling-salesperson problem 
-35.3 The set-covering problem 
-35.4 Randomization and linear programming 
-35.5 The subset-sum problem
+الگوریتم‌های جستجو
+clrs 6,7,8,9
+
+الگوریتم‌های گراف
+clrs 21,22,23,24,25
+
+الگوریتم‌های تطبیق رشته
+clrs 32
+
+الگوریتم‌های یادگیری ماشین
+clrs 33
+
+------------------
+ریاضیات گسسته
+------------------
+مفاهیم مقدماتی
+clrs 3.3
+clrs 4.3, 4.4, 4.5, 4.6, 4.7

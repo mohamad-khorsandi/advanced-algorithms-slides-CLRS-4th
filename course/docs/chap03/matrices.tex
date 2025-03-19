@@ -1,0 +1,202 @@
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+از روش تقسیم و حل می‌توانیم برای ضرب ماتریس‌های مربعی استفاده کنیم.
+\item[-]
+فرض کنید
+\m{A = (a_{ij})}
+و
+\m{B = (b_{ij})}
+دو ماتریس
+\m{n \times n}
+باشند. ماتریس
+\m{C = A \cdot B}
+نیز یک ماتریس
+\m{n \times n}
+است که درایه‌های آن به صورت زیر محاسبه می‌شوند.
+\begin{flushleft}
+\m{c_{ij} = \sum_{k=1}^{n} a_{ik} \cdot b_{kj}}
+\end{flushleft}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+الگوریتم ضرب دو ماتریس در زیر نوشته شده‌است.
+\begin{algorithm}[H]\alglr
+  \caption{Matrix} 
+  \begin{algorithmic}[1]
+    \Func{Matrix-Multiply}{A, B, C, n}
+       \For{i = 1 \To n} \LeftComment{compute entries in each of n rows}
+           \For{j = 1 \To n} \LeftComment{compute n entries in row i}
+			   \For{k = 1 \To n}
+					\State c[i,j] = c[i,j] + a[i,k] * b[k,j] \LeftComment{compute c[i,j]}
+			    \EndFor
+			\EndFor
+	   \EndFor 
+     \end{algorithmic}
+  \label{alg:merge}
+\end{algorithm}
+\item[-]
+از آنجایی که خط ۴ باید
+\m{n^3}
+بار تکرار شود، بنابراین زمان مورد نیاز برای اجرای این الگوریتم برابر است با
+\ath{n^3}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+حال می‌خواهیم ضرب دو ماتریس را توسط روش تقسیم و حل محاسبه کنیم.
+\item[-]
+در مرحله تقسیم، یک ماتریس
+\m{n \times n}
+را به چهار ماتریس
+\m{n/2 \times n/2}
+تقسیم می‌کنیم. برای سادگی فرض می‌کنیم n توانی از ۲ باشد و امکان تقسیم کردن آن به ۲ در فرایند الگوریتم تقسیم و حل وجود داشته باشد.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+با فرض اینکه هر یک از ماتریس‌های
+A
+,
+B
+و
+C
+را به چهار قسمت تقسیم کنیم، محاسبات به صورت زیر انجام می‌شود.
+\begin{align*}
+\m{C = A \cdot B \Rightarrow} \left( \begin{array}{cc} \m{C_{11}} & \m{C_{12}} \\ \m{C_{21}} & \m{C_{22}} \end{array} \right)
+= \left( \begin{array}{cc} \m{A_{11}} & \m{A_{12}} \\ \m{A_{21}} & \m{A_{22}} \end{array} \right)
+\left( \begin{array}{cc} \m{B_{11}} & \m{B_{12}} \\ \m{B_{21}} & \m{B_{22}} \end{array} \right)
+\end{align*}
+\item[-]
+بنابراین خواهیم داشت :
+\begin{align*}
+\m{C_{11} = A_{11} \cdot B_{11} + A_{12} \cdot B_{21}}\\
+\m{C_{12}= A_{11} \cdot B_{12} + A_{12} \cdot B_{22}}\\
+\m{C_{21}= A_{21} \cdot B_{11} + A_{22} \cdot B_{21}}\\
+\m{C_{22}= A_{21} \cdot B_{12} + A_{22} \cdot B_{22}}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+بنابراین ضرب یک جفت ماتریس 
+\m{n \times n}
+را به ضرب هشت جفت ماتریس 
+\m{n/2 \times n/2}
+تبدیل کردیم.
+\item[-]
+توجه کنید که در این محاسبات نتیجهٔ ضرب
+\m{A_{11} \cdot B_{11}}
+و همچنین
+\m{A_{12} \cdot B_{21}}
+باید در 
+\m{C_{11}}
+ذخیره شود.
+\begin{align*}
+\m{C_{11} = A_{11} \cdot B_{11} + A_{12} \cdot B_{21}}\\
+\m{C_{12}= A_{11} \cdot B_{12} + A_{12} \cdot B_{22}}\\
+\m{C_{21}= A_{21} \cdot B_{11} + A_{22} \cdot B_{21}}\\
+\m{C_{22}= A_{21} \cdot B_{12} + A_{22} \cdot B_{22}}
+\end{align*}
+\item[-]
+حالت پایه در این الگوریتم وقتی است که می خواهیم دو ماتریس
+\m{1 \times 1}
+را در هم ضرب کنیم که در این حالت در واقع دو عدد را در هم ضرب می‌کنیم.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+الگوریتم تقسیم و حل برای ضرب دو ماتریس را می‌توانیم به صورت زیر بنویسیم.
+\begin{algorithm}[H]\alglr
+  \caption{Matrix} 
+  \begin{algorithmic}[1]
+    \Func{Matrix-Multiply-Recursive}{A, B, C, n}
+   \Statex \LeftComment{Base case.}    
+    \If{n==1}
+    	\State \mc{c_{11}} = \mc{c_{11}} + \mc{a_{11}} * \mc{b_{11}}
+    	\State \Return
+    \EndIf
+   \Statex \LeftComment{Divide.}
+   \State Partition A, B, and C into n/2 \mc{\times} n/2 submatrices 
+    	\Statex \mc{A_{11}, A_{12}, A_{21}, A_{22}}; 
+    	\Statex \mc{B_{11}, B_{12}, B_{21}, B_{22}};
+    	\Statex \mc{C_{11}, C_{12}, C_{21}, C_{22}}; respectively    
+  \end{algorithmic}
+  \label{alg:merge}
+\end{algorithm}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+\begin{algorithm}[H]\alglr
+  \caption{Matrix} 
+  \begin{algorithmic}[1]
+    \setcounter{ALG@line}{4}
+   \Statex \LeftComment{Conquer.}   
+    	\State Matrix-Multiply-Recursive (\mc{A_{11}, B_{11}, C_{11}, n/2})
+    	\State Matrix-Multiply-Recursive (\mc{A_{11}, B_{12}, C_{12}, n/2})
+    	\State Matrix-Multiply-Recursive (\mc{A_{21}, B_{11}, C_{21}, n/2})
+    	\State Matrix-Multiply-Recursive (\mc{A_{21}, B_{12}, C_{22}, n/2})
+    	\State Matrix-Multiply-Recursive (\mc{A_{12}, B_{21}, C_{11}, n/2})
+    	\State Matrix-Multiply-Recursive (\mc{A_{12}, B_{22}, C_{12}, n/2})
+    	\State Matrix-Multiply-Recursive (\mc{A_{22}, B_{21}, C_{21}, n/2})
+    	\State Matrix-Multiply-Recursive (\mc{A_{22}, B_{22}, C_{22}, n/2})
+  \end{algorithmic}
+  \label{alg:merge}
+\end{algorithm}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+یک ضرب ماتریسی با اندازهٔ 
+\m{n}
+ را به ۸ ضرب ماتریسی با اندازهٔ 
+\m{n/2}
+تبدیل کردیم.
+\item[-]
+فرض می‌کنیم که در تقسیم ماتریس به ماتریس‌های کوچک‌تر، تنها اندیس‌ها را نامگذاری مجدد می‌کنیم و بنابراین عملیات در زمان ثابت می‌تواند انجام شود.
+\item[-]
+بنابراین برای تحلیل این الگوریتم، می‌توانیم از رابطه بازگشتی زیر استفاده کنیم.
+\begin{center}
+\m{T(n) = 8 T(n/2) +  \ath{1}}
+\end{center}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{‌ضرب ماتریس‌ها}
+\begin{itemize}\itemr
+\item[-]
+با حل کردن این معادله به دست می‌آوریم
+\m{T(n) = \ath{n^3}}.
+\item[-]
+بنابراین روش تقسیم و حل زمان محاسبات را در ضرب ماتریسی کاهش نمی‌دهد.
+\item[-]
+با استفاده از الگوریتم استراسن
+\fn{1}{Strassen}
+که از یک الگوریتم تقسیم و حل بهینه‌تر استفاده می‌کند، زمان محاسبات کاهش پیدا خواهد کرد.
+\end{itemize}
+\end{frame}

@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\node[ss] (begin) at (0,0) {شروع};
+\node[proc] (rem) at (3,0) {$\text{۱. پیدا کردن باقیمانده}$};
+\node[ifelse] (zero) at (3,-1.5) {$\text{۲. آیا باقیمانده صفر است؟}$};
+\node[proc] (reduce) at (7,-1.5) {$\text{۳. کاهش}$};
+\node[print] (print) at (3,-3) {$\text{چاپ جواب}$};
+\node[ss] (end) at (3,-4.5) {پایان};
+\draw[-latex] (begin) to (rem);
+\draw[-latex] (rem) to (zero);
+\draw[-latex] (zero) to (print);
+\draw[-latex] (print) to (end);
+\draw[-latex] (zero) to (reduce);
+\draw[-latex] (reduce) to (rem);
+\node[txt] (zeroyes) at ($(zero) + (0.3,-0.7)$) {بله};
+\node[txt] (zerono) at ($(zero) + (3,-0.2)$) {خیر};
+\end{tikzpicture}

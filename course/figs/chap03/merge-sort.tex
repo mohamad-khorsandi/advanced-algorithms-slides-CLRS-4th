@@ -1,0 +1,58 @@
+\begin{algorithm}[H]\alglr
+  \caption{Merge} 
+  \begin{algorithmic}[1]
+    \Func{Merge}{A, p, q, r}
+       \State nl = q - p + 1 // length of A[p:q]
+    \State nr = r - q // length of A[q+1 : r]
+    \State let L[ 0 : nl - 1 ] and R[ 0 : nr - 1 ] be new arrays
+    \For{i = 0 \To \m{n_L - 1}} // copy A[p:q] into \m{L[0:n_L -1]}
+      \State L[i] = A[p+i]
+    \EndFor
+    \For{j = 0 to \m{n_R - 1}} //copy A[q+1:r] into \m{L[0:n_R -1]} 
+      \State R[j] = A[q + j + 1]
+      \State i = 0 // i indexes the smallest remaining element in L
+      \State j = 0 // j indexes the smallest remaining element in R
+      \State k = p // k indexes the location in A to fill
+     \EndFor
+    // As long as each of the arrays L and R contains un unmerged element,
+    // copy the smallest unmerged element back into A[p : r].
+    \While{ \m{i < n_L} and \m{j < n_R}}
+          \If {L[i] $\leq$ R[j]}
+              \State A[k] = L[i]
+              \State i = i + 1
+          \Else A[k] = R[j]
+              \State j = j + 1
+              \State k = k + 1
+           \EndIf
+      \EndWhile
+    // Having gone through one of L and R entirely, copy the
+    //      remainder of the other to the end of A[p:r]
+    \While{\m{i < n_L}}
+             \State A[k] = L[i]
+             \State i = i + 1
+             \State k = k + 1
+     \EndWhile      
+    \While{ \m{j < n_R}}
+            \State A[k] = R[j]
+            \State j = j + 1
+            \State k = k + 1 
+      \EndWhile
+  \end{algorithmic}
+  \label{alg:merge}
+\end{algorithm}
+
+\begin{algorithm}[H]\alglr
+  \caption{Merge Sort} 
+  \begin{algorithmic}[1]
+    \Func{Merge-Sort}{A, p, r}
+    \If \m{p \geq r}	// zero or one element?
+    	return
+    \State \m{q = [(p+r)/2]}	// midpoint of A[p:r]
+    Merge-Sort (A, p, q)	// recursively sort A[p:q]
+    Merge-Sort (A, q+1, r)	// recursively sort A[q+1:r]
+    //Merge A[p:q] and A[q+1:r] into A[p:r].
+    Merge (A, p, q, r)
+    \EndIf
+  \end{algorithmic}
+  \label{alg:merge-sort}
+\end{algorithm}
