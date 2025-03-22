@@ -1,0 +1,142 @@
+\usetikzlibrary{arrows,calc}
+\usetikzlibrary{positioning,shapes,chains,fit}
+
+
+\tikzset{
+    %Define style for boxes
+    node/.style={
+        circle,
+        draw=black, thick,
+        align=center,
+    },
+    ss/.style={
+        circle,
+        draw=black,
+        align=center,
+    },
+    proc/.style={
+        rounded corners,
+        draw=black,
+        align=center,
+    },
+    ifelse/.style={
+	ellipse,
+	draw=black,
+	align=center,
+    },
+    cloudy/.style={
+	cloud,
+	cloud puffs=12,
+	cloud ignores aspect,
+	align=center,
+	draw=black,
+    },
+    txt/.style={
+        draw = none,
+        align = center,
+        font = \footnotesize,
+    },
+    coin/.style={
+        rectangle,
+        minimum height=1mm,
+        minimum width=1cm,
+        draw=black,
+        fill=black!20,
+        rounded corners
+    },
+    towercolor/.style={
+        fill=black!80
+    },
+    towerbase/.style={
+        trapezium,
+        trapezium angle=75,
+        trapezium stretches=true,
+        towercolor,
+        minimum width=7mm,
+        minimum height=2mm,
+    },
+    tower/.style={
+        rectangle,
+        rounded corners,
+        towercolor,
+        minimum width=2mm,
+        minimum height=26mm,
+    },
+    start-end/.style={
+        draw,
+        rectangle,
+        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+    connection/.style={
+        draw,
+        circle,
+        radius=5pt,
+    },
+    process rectangle outer width/.initial=0.15cm,
+    predefined process/.style={
+        rectangle,
+        draw,
+        append after command={
+        \pgfextra{
+          \draw
+          ($(\tikzlastnode.north west)-(0,0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.north west)-(\pgfkeysvalueof{/tikz/process rectangle outer width},0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south west)+(-\pgfkeysvalueof{/tikz/process rectangle outer width},+0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south west)+(0,0.5\pgflinewidth)$);
+          \draw
+          ($(\tikzlastnode.north east)-(0,0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.north east)+(\pgfkeysvalueof{/tikz/process rectangle outer width},-0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south east)+(\pgfkeysvalueof{/tikz/process rectangle outer width},0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south east)+(0,0.5\pgflinewidth)$);
+        }  
+        },
+        text width=#1,
+        align=center
+    },
+    predefined process/.default=1.75cm,
+    man op/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        shape border rotate=180,
+        text width=2cm,
+        align=center,
+    },
+    extract/.style={
+        draw,
+        isosceles triangle,
+        isosceles triangle apex angle=60,
+        shape border rotate=90
+    },
+    merge/.style={
+        draw,
+        isosceles triangle,
+        isosceles triangle apex angle=60,
+        shape border rotate=-90
+    },
+}
