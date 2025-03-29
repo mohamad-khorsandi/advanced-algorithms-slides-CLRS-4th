@@ -1,0 +1,57 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usefonttheme[stillsansserifmath]{serif}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{mathtools, nccmath}
+\usepackage{amssymb, amsmath}
+\usepackage{xspace}
+\usepackage{tikz}
+\usepackage{standalone}
+\usepackage{euler}
+\usepackage{color,xcolor}
+\usepackage{fontspec}
+\usepackage{nameref}
+\usepackage{manfnt}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithmicx}
+\usepackage{docs/style}
+\usepackage{xepersian}
+
+%settings---------------------
+\settextfont{XB Yas.ttf}
+\input{docs/macros}
+\input{figs/figstyle}
+
+%cover page info--------------
+\title{الگوریتم‌های پیشرفته}
+\author{آرش شفیعی}
+\institute{\includegraphics[height=1.2cm]{logos/ui.png}}
+\date{}
+
+\begin{document}
+
+%cover page-------------------
+\begin{frame}[plain]
+	\centering{به نام خدا}
+	\maketitle
+\end{frame}
+
+\setcounter{framenumber}{0}
+\raggedleft
+
+%toc---------------------------
+\begin{frame}{فهرست مطالب}
+\begin{flushright}
+	\tableofcontents
+\end{flushright}
+\end{frame}
+
+%chpaters--------------------
+\input{docs/chap01/chap01}
+\input{docs/chap02/chap02}
+
+\end{document}
