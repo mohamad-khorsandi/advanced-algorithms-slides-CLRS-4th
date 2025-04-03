@@ -118,3 +118,22 @@
 	\IfBooleanF{#1}{\hspace*{\ALG@thistlm}}\textcolor{commentgreen}{\(~\triangleright\) #2}}
 \makeatother
 
+
+\newenvironment{itemframe}[2]{
+\begin{frame}[environment=itemframe]{#1}
+\framesubtitle{\small \color{gray} \quad #2}
+\itemize
+\itemr
+
+
+}{
+\enditemize
+\end{frame}
+}
+
+\newcommand{\centerimg}[2][.5\textwidth]{
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=#1\textwidth]{#2}
+    \end{figure}
+}
