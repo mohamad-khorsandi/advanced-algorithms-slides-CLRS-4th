@@ -1,23 +1,12 @@
 \documentclass[aspectratio=169]{beamer}
 
-\usefonttheme[stillsansserifmath]{serif}
 \usepackage{graphicx}
-\usepackage{amsfonts}
-\usepackage{mathtools, nccmath}
-\usepackage{amssymb, amsmath}
+\usepackage{amsmath}
 \usepackage{xspace}
 \usepackage{tikz}
-\usepackage{standalone}
-\usepackage{euler}
-\usepackage{color,xcolor}
-\usepackage{fontspec}
-\usepackage{nameref}
-\usepackage{manfnt}
 \usepackage{listings}
-\usepackage{xcolor}
-\usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
-\usepackage{algorithmicx}
+\usepackage{unicode-math}
+\usepackage{environ}
 \usepackage{docs/style}
 \usepackage{xepersian}
 
@@ -25,6 +14,7 @@
 \settextfont{Yas}
 \input{docs/macros}
 \input{figs/figstyle}
+\setmathfont{Latin Modern Math}
 
 %cover page info--------------
 \title{الگوریتم‌های پیشرفته}
@@ -44,13 +34,13 @@
 \raggedleft
 
 %refrences----------------
-\begin{frame}{کتاب‌های مرجع}
-	\begin{itemize}\itmsep{5mm}
-	\item[-]
+\begin{itemframe}{کتاب‌های مرجع}{}
+\itmsep{5mm}
+\item[-]
 مقدمه‌ای بر الگوریتم‌ها از کرمن، لایسرسون، ریوست، و استاین
-	\fn{1}{Introduction to Algorithms, by Cormen, Leiserson, Rivest, and Stein}
-	\end{itemize}
-\end{frame}
+\fn{1}{Introduction to Algorithms, by Cormen, Leiserson, Rivest, and Stein}
+
+\end{itemframe}
 
 %chpaters--------------------
 \input{docs/chap01/chap_main}

@@ -118,14 +118,12 @@
 	\IfBooleanF{#1}{\hspace*{\ALG@thistlm}}\textcolor{commentgreen}{\(~\triangleright\) #2}}
 \makeatother
 
-
+%added macros
 \newenvironment{itemframe}[2]{
 \begin{frame}[environment=itemframe]{#1}
-
 \framesubtitle{\small \color{gray} \quad #2}
 \itemize
 \itemr
-
 }{
 \enditemize
 \end{frame}
@@ -137,3 +135,24 @@
         \includegraphics[width=#1\textwidth]{#2}
     \end{figure}
 }
+
+\newcommand{\formula}[1]{
+\begin{align}
+\ensuremath{\mathnormal{#1}}
+\end{align}
+}
+
+\NewEnviron{mnum}{
+  \begin{align}
+     \mathnormal{\BODY}
+  \end{align}
+
+}
+
+\NewEnviron{mline}{
+  \begin{align*}
+     \BODY
+  \end{align*}
+}
+
+\newcommand{\eq}[1]{معادله \ref{#1}}
