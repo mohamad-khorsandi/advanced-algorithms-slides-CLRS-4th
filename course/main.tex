@@ -6,14 +6,17 @@
 \usepackage{tikz}
 \usepackage{listings}
 \usepackage{unicode-math}
-\usepackage{environ}
-\usepackage{docs/style}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithmicx}
+
+\usepackage{settings/style}
 \usepackage{xepersian}
 
 %settings---------------------
 \settextfont{Yas}
-\input{docs/macros}
-\input{figs/figstyle}
+\input{settings/macros}
+\input{settings/figstyle}
 \setmathfont{Latin Modern Math}
 
 %cover page info--------------
@@ -49,12 +52,7 @@
 \end{frame}
 
 %chpaters--------------------
-\section{الگوریتم‌های پیشرفته در گراف}
-\input{docs/graph/review} %5 pages
-\input{docs/graph/johnson} %12 pages
-\input{docs/graph/max-flow} %16 pages
-\input{docs/graph/ford-fulkerson}
-\input{docs/graph/ford-fulkerson-proof}
 
-%overall = 68
+\input{docs/np-completeness/chapter-main}
+\input{docs/appendix/chapter-main}
 \end{document}

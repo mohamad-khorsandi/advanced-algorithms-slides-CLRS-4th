@@ -113,17 +113,27 @@
     %classoffset=0,
 }
 
-\makeatletter
-\NewDocumentCommand{\LeftComment}{s m}{%
-	\IfBooleanF{#1}{\hspace*{\ALG@thistlm}}\textcolor{commentgreen}{\(~\triangleright\) #2}}
-\makeatother
 
-%added macros
-\newenvironment{itemframe}[2]{
+%----------------------------------------------------------------------------------------------------------added macros
+\newcommand{\decLineSpace}[1][2mm]{\setlength{\itemsep}{#1}}
+
+
+\newenvironment{itemframe}[1]{
 \begin{frame}[environment=itemframe]{#1}
+\itemize
+\raggedleft
+\setlength{\itemsep}{3mm}
+}{
+\enditemize
+\end{frame}
+}
+
+\newenvironment{itemframe-s}[2]{
+\begin{frame}[environment=itemframe-s]{#1}
 \framesubtitle{\small \color{gray} \quad #2}
 \itemize
-\itemr
+\raggedleft
+\setlength{\itemsep}{3mm}
 }{
 \enditemize
 \end{frame}
@@ -136,23 +146,5 @@
     \end{figure}
 }
 
-\newcommand{\formula}[1]{
-\begin{align}
-\ensuremath{\mathnormal{#1}}
-\end{align}
-}
-
-\NewEnviron{mnum}{
-  \begin{align}
-     \mathnormal{\BODY}
-  \end{align}
-
-}
-
-\NewEnviron{mline}{
-  \begin{align*}
-     \BODY
-  \end{align*}
-}
 
 \newcommand{\eq}[1]{معادله \ref{#1}}
