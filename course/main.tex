@@ -9,6 +9,7 @@
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
 \usepackage{algorithmicx}
+\usepackage{perpage}
 
 \usepackage{settings/style}
 \usepackage{xepersian}
@@ -19,6 +20,7 @@
 \input{settings/macros-part2}
 \input{settings/figstyle}
 \setmathfont{Latin Modern Math}
+\MakePerPage{footnote}
 
 %cover page info--------------
 \title{الگوریتم‌های پیشرفته}
@@ -44,20 +46,20 @@
 \end{frame}
 
 %refrences----------------
-\begin{frame}{کتاب‌های مرجع}
-	\begin{itemize}\itmsep{5mm}
-		\item[-]
+\begin{itemframe}{کتاب‌های مرجع}
+\itm
 مقدمه‌ای بر الگوریتم‌ها از کرمن، لایسرسون، ریوست، و استاین
-		\fn{1}{Introduction to Algorithms, by Cormen, Leiserson, Rivest, and Stein}
-	\end{itemize}
-\end{frame}
+\fn{Introduction to Algorithms, by Cormen, Leiserson, Rivest, and Stein}
+\end{itemframe}
 
 %chpaters--------------------
-%\input{docs/np-completeness/chapter-main}
-%\input{docs/appendix/chapter-main}
-%\input{docs/graph/chapter-main}
-\input{docs/matching/chapter-main}
+\chapinput{shortest-path}
+\chapinput{np-completeness}
+\chapinput{max-flow}
+\chapinput{matching}
+% 224 pages
+
+\chapinput{approximation-algorithms}
 
 \end{document}
 
-%todo graph chapter should be seperated to several chapters

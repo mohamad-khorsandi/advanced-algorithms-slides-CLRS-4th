@@ -18,6 +18,7 @@
 \itemize
 \raggedleft
 \setlength{\itemsep}{3mm}
+
 }{
 \enditemize
 \end{frame}
@@ -30,5 +31,30 @@
     \end{figure}
 }
 
+%todo migrate from centerimg to pic
+\newcommand{\pic}[2][.5]{
+   \begin{figure}[h!]
+        \centering
+        \includegraphics[width=#1\textwidth]{figs/\chapdir/#2}
+    \end{figure}
+}
 
 \newcommand{\eq}[1]{معادله \ref{#1}}
+
+\newcommand{\chapdir}{}
+\newcommand{\chapinput}[1] {
+	\renewcommand{\chapdir}{#1}
+	\input{docs/\chapdir/chapter-main}
+}
+
+\newcommand{\partinput}[1] {
+	\input{docs/\chapdir/#1}
+}
+
+\newcommand{\itm}{
+	\item[\textbullet]
+}
+
+\newcommand{\sub}{
+	\item[$\circ$]
+}
