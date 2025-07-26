@@ -10,9 +10,9 @@ Feel free to use them for educational purposes.
 | Chapter                                             | In Progress | Completed | Reviewed |
 | :-------------------------------------------------- | ----------- | :-------- | :------- |
 | 23: Johnson                                         | ✅           | ✅         | ✅        |
-| 24: Maximum Flow                                    | ✅           | ✅         | ⬜        |
+| 24: Maximum Flow                                    | ✅           | ✅         | ✅        |
 | 25: Matching in Bipartite Graph                     | ✅           | ✅         | ⬜        |
-| 34: NP-Completeness                                 | ✅           | ✅         | ⬜        |
+| 34: NP-Completeness                                 | ✅           | ✅         | ✅        |
 | 35: Approximation Algorithms                        | ✅           | ⬜         | ⬜        |
 | 29: Linear Programming                              | ⬜           | ⬜         | ⬜        |
 | 26: Parallel Algorithms                             | ⬜           | ⬜         | ⬜        |
