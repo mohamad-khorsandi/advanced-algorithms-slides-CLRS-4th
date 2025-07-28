@@ -11,7 +11,7 @@ Feel free to use them for educational purposes.
 | :-------------------------------------------------- | ----------- | :-------- | :------- |
 | 23: Johnson                                         | ✅           | ✅         | ✅        |
 | 24: Maximum Flow                                    | ✅           | ✅         | ✅        |
-| 25: Matching in Bipartite Graph                     | ✅           | ✅         | ⬜        |
+| 25: Matching in Bipartite Graph                     | ✅           | ✅         | ✅        |
 | 34: NP-Completeness                                 | ✅           | ✅         | ✅        |
 | 35: Approximation Algorithms                        | ✅           | ⬜         | ⬜        |
 | 29: Linear Programming                              | ⬜           | ⬜         | ⬜        |
