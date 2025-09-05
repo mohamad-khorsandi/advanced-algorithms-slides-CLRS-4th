@@ -14,6 +14,6 @@ Feel free to use them for educational purposes.
 | 25: Matching in Bipartite Graph                     | ✅           | ✅         | ✅        |        |             |
 | 34: NP-Completeness                                 | ✅           | ✅         | ✅        |        |             |
 | 35: Approximation Algorithms                        | ✅           | ⬜         | ⬜        | 31     | 4           |
-| 29: Linear Programming                              | ✅           | ⬜         | ⬜        | 25     | 2           |
+| 29: Linear Programming                              | ✅           | ⬜         | ⬜        | 25     | 1           |
 | 26: Parallel Algorithms                             | ✅           | ⬜         | ⬜        | 41     |             |
 | 5: Probabilistic Analysis and Randomized Algorithms | ✅           | ⬜         | ⬜        | 28     | 1           |

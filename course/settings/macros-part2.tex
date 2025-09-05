@@ -49,10 +49,11 @@
 	\input{docs/\chapdir/#1}
 }
 
-\newcommand{\itm}{
-	\item[\textbullet]
+\newcommand{\itm}[1][\textbullet]{
+  \item[#1]
 }
-
 \newcommand{\sub}{
 	\item[$\circ$]
 }
+
+\algrenewcommand{\algorithmiccomment}[1]{\hfill\textcolor{gray}{// #1}}
