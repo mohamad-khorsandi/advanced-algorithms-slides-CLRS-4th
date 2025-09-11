@@ -57,3 +57,8 @@
 }
 
 \algrenewcommand{\algorithmiccomment}[1]{\hfill\textcolor{gray}{// #1}}
+
+
+\algdef{SE}[FOR]{pFor}{EndpFor}[1]
+  {\textbf{parallel for} #1 \textbf{do}}{}
+\algtext*{EndpFor}
