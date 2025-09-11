@@ -1,0 +1,214 @@
+\begin{itemframe}{ضرب موازی ماتریس‌ها}
+\itm
+در این بخش، بررسی می‌کنیم که چگونه می‌توان الگوریتم‌های ضرب ماتریس را موازی‌سازی کرد.
+خواهیم دید که هر الگوریتم را می‌توان به‌سادگی با استفاده از کلید‌واژه‌هایی که آموختیم موازی‌سازی نمود.
+\itm
+این الگوریتم‌ها را با استفاده از کار-گستره تحلیل خواهیم کرد و مشاهده می‌کنیم که الگوریتم‌های موازی همان کارایی الگوریتم سری متناظر خود را روی یک پردازنده به دست می‌آورند، در حالی که روی تعداد زیادی پردازنده نیز مقیاس‌پذیر هستند.
+\end{itemframe}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش حلقه‌های تودرتو}
+\itm
+اولین الگوریتمی که بررسی می‌کنیم
+\texttt{P-MATRIX-MULTIPLY}
+است که به‌سادگی دو حلقهٔ بیرونی در ضرب ماتریسی عادی را موازی‌سازی می‌کند.
+\begin{algorithm}[H]\alglr
+\caption{P-MATRIX-MULTIPLY}
+\begin{algorithmic}[1]
+\Func{P-MATRIX-MULTIPLY}{$A, B, C, n$}
+\pFor{$i = 1 \ \textbf{to} \ n$} \Comment{compute entries in each of $n$ rows}
+    \pFor{$j = 1 \ \textbf{to} \ n$} \Comment{compute $n$ entries in row $i$}
+        \For{$k = 1 \ \textbf{to} \ n$}
+            \State $c_{ij} \gets c_{ij} + a_{ik} \cdot b_{kj}$
+        \EndFor
+    \EndpFor
+\EndpFor
+\end{algorithmic}
+\end{algorithm}
+
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش حلقه‌های تودرتو}
+\itm
+اکنون این الگوریتم را تحلیل می‌کنیم. از تحلیل تصویر سری این الگوریتم در می‌یابیم کار برابر با است با:
+$$
+T_1(n) = \Theta(n^3)
+$$
+
+\itm
+زیرا مسیر بحرانی شامل حرکت بازگشتی ناشی از حلقهٔ موازی خط 1، سپس درخت بازگشتی ناشی از حلقهٔ موازی خط 2، و سپس اجرای تمام n تکرار حلقهٔ معمولی خط 3 است. در نتیجه گستره برابر می‌شود با:
+$$
+T_\infty(n) = \Theta(\lg n) + \Theta(\lg n) + \Theta(n) = \Theta(n)
+$$
+بنابراین، نرخ موازی‌سازی برابر است با:
+$$
+\Theta(n^3) / \Theta(n) = \Theta(n^2).
+$$
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش تقسیم و حل}
+\itm
+احتمالاً با انجام ضرب ماتریسی با استفاده از تقسیم و حل آشنایی داشته باشید. در این قسمت می‌خواهیم همان روش را موازی‌سازی کنیم.
+\itm
+این روش دو ماتریس
+$n \times n$
+را در زمان
+$\Theta(n^3)$
+ضرب می‌کند.
+\itm
+بیایید ببینیم چگونه می‌توان این الگوریتم را با استفاده از فراخوانی‌ها موازی بازگشتی پیاده سازی کرد.
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش تقسیم و حل}
+\itm
+می‌دانیم که تابع سریالی ضرب ماتریس به روش تقسیم و حل، سه ماتریس
+$n \times n$
+دریافت می‌کند
+و سپس محاسبهٔ ماتریسی زیر را انجام می‌دهد: (فرض کنید سه ماترسی را A B C بنامیم)
+$$
+C = C + A \cdot B
+$$
+این کار با انجام هشت ضرب از زیر ماتریس‌های
+$\frac{n}{2} \times \frac{n}{2}$
+از A و B به‌صورت بازگشتی انجام می‌شود.
+\itm
+
+تابع
+\texttt{P-MATRIX-MULTIPLY-RECURSIVE}
+در اسلاید بعدی همین راهبرد تقسیم‌ و حل را پیاده‌سازی می‌کند، اما برای انجام این هشت ضرب از فراخوانی موازی استفاده می‌کند.
+برای اجتناب از بروز عدم قطعیت رقابتی هنگام به‌روزرسانی عناصر، یک ماتریس موقتی D ساخته می‌شود و سپس C و D جمع می‌شوند تا نتیجهٔ نهایی به دست آید.
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش تقسیم و حل}
+\itm
+الگوریتم ضرب ماتریسی موازی به روش تقسیم و حل به این صورت است:
+ \begin{algorithm}[H]\alglr
+\caption{P-MATRIX-MULTIPLY-RECURSIVE}
+\begin{algorithmic}[1]
+\Func{P-MATRIX-MULTIPLY-RECURSIVE}{$A, B, C, n$}
+\If{$n = 1$} \Comment{base case}
+    \State $c_{11} \gets c_{11} + a_{11} \cdot b_{11}$
+    \State \Return
+\EndIf
+\State let $D$ be a new $n \times n$ matrix \Comment{temporary matrix}
+\pFor{ $i = 1$ to $n$}
+    \pFor{$j = 1$ to $n$}
+        \State $d_{ij} \gets 0$
+    \EndFor
+\EndFor
+\State partition $A, B, C, D$ into $\tfrac{n}{2} \times \tfrac{n}{2}$ submatrices:
+\State \hspace{1.5em} $A_{11}, A_{12}, A_{21}, A_{22}$,
+$B_{11}, B_{12}, B_{21}, B_{22}$,
+
+\State \hspace{1.5em} $C_{11}, C_{12}, C_{21}, C_{22}$,
+and $D_{11}, D_{12}, D_{21}, D_{22}$
+\end{algorithmic}
+\end{algorithm}
+
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش تقسیم و حل}
+\itm
+ادامه تابع ضرب ماتریسی موازی به روش تقسیم و حل...
+ \begin{algorithm}[H]\alglr
+\begin{algorithmic}[1]
+\setcounter{ALG@line}{10}
+\State \textbf{spawn} P-MATRIX-MULTIPLY-RECURSIVE($A_{11}, B_{11}, C_{11}, n/2$)
+\State \textbf{spawn} P-MATRIX-MULTIPLY-RECURSIVE($A_{11}, B_{12}, C_{12}, n/2$)
+\State \textbf{spawn} P-MATRIX-MULTIPLY-RECURSIVE($A_{21}, B_{11}, C_{21}, n/2$)
+\State \textbf{spawn} P-MATRIX-MULTIPLY-RECURSIVE($A_{21}, B_{12}, C_{22}, n/2$)
+\State \textbf{spawn} P-MATRIX-MULTIPLY-RECURSIVE($A_{12}, B_{21}, D_{11}, n/2$)
+\State \textbf{spawn} P-MATRIX-MULTIPLY-RECURSIVE($A_{12}, B_{22}, D_{12}, n/2$)
+\State \textbf{spawn} P-MATRIX-MULTIPLY-RECURSIVE($A_{22}, B_{21}, D_{21}, n/2$)
+\State \textbf{spawn} P-MATRIX-MULTIPLY-RECURSIVE($A_{22}, B_{22}, D_{22}, n/2$)
+\State \textbf{sync} \Comment{wait for spawned submatrix products}
+\For{parallel $i = 1$ to $n$} \Comment{update $C = C + D$}
+    \For{parallel $j = 1$ to $n$}
+        \State $c_{ij} \gets c_{ij} + d_{ij}$
+    \EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش تقسیم و حل}
+\itm
+خطوط 1 تا 3 حالت پایه را که مربوط به ضرب ماتریس‌های
+$1 \times 1$
+است، مدیریت می‌کنند و بخش باقی‌مانده با حالت بازگشتی سروکار دارد. خط 8 هر یک از چهار ماتریس
+$A, B, C, D$
+را به زیرماتریس‌های
+$
+\frac{n}{2} \times \frac{n}{2}
+$
+تقسیم می‌کند.
+\itm
+در خطوط ۱۱ تا ۱۸ هشت ضرب ماترسی مذکور به شکل موازی انجام شده و در نتیجه در ماتریس‌ها C‌ و D قرار می‌گیرد.
+\itm
+در خط ۱۹ دستور sync تضمین می‌کند که همهٔ ضرب‌ها محاسبه شده‌باشند، و پس از آن در خطوط ۲۰ تا ۲۲ ماتریس C و D جمع می‌شوند.
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش تقسیم و حل}
+\itm
+بیایید رویهٔ
+\texttt{P-MATRIX-MULTIPLY-RECURSIVE}
+را تحلیل کنیم. ابتدا، کار یا همان
+$M_1(n)$
+را تحلیل می‌کنیم.
+\itm
+می‌دانیم باید قسمتی که هشت ضرب بازگشتی
+را انجام می‌دهد از بقیهٔ قسمت‌ها پیچیدگی زمانی بالاتری دارد و پیچیدگی زمانی ‌آن برابر است با:
+$$
+M_1(n) = 8M_1(n/2) + \Theta(n^2) = \Theta(n^3)
+$$
+
+که با حالت 1 قضیهٔ اصلی
+\fn{master theorem}
+به دست می‌آید.
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش تقسیم و حل}
+\itm
+اکنون باید طول مسیر بحرانی یا همان
+$M_\infty(n)$
+را تعیین کنیم. از آنجا که هشت فراخوانی بازگشتی موازی همگی روی ماتریس‌هایی با اندازهٔ یکسان اجرا می‌شوند، گستره همه فراخوانی‌های بازگشتی با هم برابر است و بنابراین بیشینه گستره آنها برابر است با گستره یکی از آنها و برابر است با:
+$$
+M_\infty(n/2)
+$$
+\itm
+گستره برای حلقه‌های تو در توی موازی در خطوط 5 تا 7 برابر با
+$\Theta(\lg n)$
+است، به‌طور مشابه، حلقه‌های تو در توی موازی در خطوط ۲۰ تا ۲۲ نیز
+$\Theta(\lg n)$
+دیگر به گستره اضافه می‌کنند.
+پیچیدگی زمانی تقسیم ماتریس هم ثابت است و از آن صرف نظر می‌کنیم.
+ بنابراین گستره این تابع به صورت زیر است:
+
+$$M_\infty(n) = M_\infty(n/2) + \Theta(\lg n)$$
+\end{itemframe-s}
+
+
+\begin{itemframe-s}{ضرب موازی ماتریس‌ها}{موازی‌سازی روش تقسیم و حل}
+\itm
+این رابطه بازگشتی تحت حالت دوم قضیهٔ اصلی با قرار می‌گیرد و جواب آن چنین است:
+$$
+M_\infty(n) = \Theta(\lg^2 n)
+$$
+\itm
+پس نرخ موازی‌سازی الگوریتم
+\texttt{P-MATRIX-MULTIPLY-RECURSIVE}
+برابر است با:
+$$
+M_1(n) / M_\infty(n) = \Theta(n^3 / \lg^2 n)
+$$
+
+که بسیار بزرگ است و نشان دهنده تأثیر بسزای موازی سازی در افزایش سرعت این الگوریتم است.
+\end{itemframe-s}
