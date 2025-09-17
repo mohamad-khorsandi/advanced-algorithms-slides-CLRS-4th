@@ -7,13 +7,13 @@ According to CLRS 4th edition.
 Feel free to use them for educational purposes.
 
 ### Progress Table
-| Chapter                                             | In Progress | Completed | Reviewed | #pages | #parts left |
-| :-------------------------------------------------- | ----------- | :-------- | :------- | ------ | ----------- |
-| 23: Johnson                                         | ✅           | ✅         | ✅        |        |             |
-| 24: Maximum Flow                                    | ✅           | ✅         | ✅        |        |             |
-| 25: Matching in Bipartite Graph                     | ✅           | ✅         | ✅        |        |             |
-| 34: NP-Completeness                                 | ✅           | ✅         | ✅        |        |             |
-| 35: Approximation Algorithms                        | ✅           | ⬜         | ⬜        | 31     | 4           |
-| 29: Linear Programming                              | ✅           | ⬜         | ⬜        | 25     | 1           |
-| 26: Parallel Algorithms                             | ✅           | ⬜         | ⬜        | 41     |             |
-| 5: Probabilistic Analysis and Randomized Algorithms | ✅           | ⬜         | ⬜        | 28     | 1           |
+| Chapter                                             | In Progress | Completed | Reviewed |
+| :-------------------------------------------------- | ----------- | :-------- | :------- |
+| 23: Johnson                                         | ✅           | ✅         | ✅        |
+| 24: Maximum Flow                                    | ✅           | ✅         | ✅        |
+| 25: Matching in Bipartite Graph                     | ✅           | ✅         | ✅        |
+| 34: NP-Completeness                                 | ✅           | ✅         | ✅        |
+| 35: Approximation Algorithms                        | ✅           | ✅         | ✅        |
+| 29: Linear Programming                              | ✅           | ✅         | ✅        |
+| 26: Parallel Algorithms                             | ✅           | ✅         | ✅        |
+| 5: Probabilistic Analysis and Randomized Algorithms | ✅           | ✅         | ✅        |
